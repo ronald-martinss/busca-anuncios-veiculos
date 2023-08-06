@@ -21,7 +21,7 @@ anuncios = []
 # captura de anuncios propriamente dita para cada estado
 for estado in estados:
 
-    url = f'https://www.mobiauto.com.br/comprar/carros/{estado}?page=0'
+    url = f'https://www.site.com.br/{estado}?page=0'
 
     # "criando" o navegador
     driver = webdriver.Chrome()
@@ -35,7 +35,7 @@ for estado in estados:
     quantidade = quantidade[0:i]
     quantidade = int(quantidade.replace('.', ''))
 
-    # buscando a quantidade de paginas a serem passadas
+    # calculando a quantidade de paginas a serem passadas
     qtd_paginas = quantidade/24
     qtd_paginas = math.ceil(qtd_paginas)
     qtd_paginas = int(qtd_paginas)
@@ -67,14 +67,13 @@ for estado in estados:
         if i % 15 == 0 and i != 0:
             time.sleep(30)
             driver.get(
-                f'https://www.mobiauto.com.br/comprar/carros/{estado}?page={i+1}')
+                f'https://www.site.com.br/{estado}?page={i+1}')
         else:
             driver.get(
-                f'https://www.mobiauto.com.br/comprar/carros/{estado}?page={i+1}')
+                f'https://www.site.com.br/{estado}?page={i+1}')
 
     driver.quit()
     delay
-
 
 # armazenando os dados coletados em um arquivo excel
 dia_captura = date.today().strftime('%d-%m-%Y')
