@@ -7,6 +7,7 @@ import math
 import time
 import pandas as pd
 import os
+import openpyxl
 
 # definindo um pequeno delay para aplicar ao longo do script
 delay = time.sleep(1)
